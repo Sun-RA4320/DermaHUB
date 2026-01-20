@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DermaHub Statistics</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body {
+        margin: 0;
+        font-family: "Sono", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        background: url(/DERMA/derma.webp) no-repeat center center/cover;
+    }
+
+    .container {
+        margin-top: 30px;
+        padding: 20px 30px;
+        border-radius: 15px;
+        background-color: rgba(0, 0, 0, 0.4); /* translucent dark overlay */
+        -webkit-backdrop-filter: blur();
+        backdrop-filter: blur(15px);
+        color: #fff;
+        max-width: 800px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    h3 {
+        margin: 30px 0 10px;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    canvas {
+        width: 100% !important;
+        max-width: 700px;
+        height: 400px !important;
+    }
+
+    .back-button {
+        margin-top: 30px;
+    }
+
+    .back-button button {
+        padding: 12px 25px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        border: none;
+        background-color: aquamarine;
+        cursor: pointer;
+    }
+    
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Statistiques</h1>
+
+    <h3>Diagnostique les plus Fréquents</h3>
+    <canvas id="diagnosisChart"></canvas>
+
+    <h3>Patients par année</h3>
+    <canvas id="patientsYearChart"></canvas>
+
+    <h3 id="pie">Répartition par Âge</h3>
+    <canvas id="ageDistributionChart"></canvas>
+
+    <div class="back-button">
+        <a href="dashboard.html"><button>Retour au tableau de bord</button></a>
+    </div>
+</div>
+
+<script>
+// === Diagnosis Chart ===
+new Chart(document.getElementById('diagnosisChart'), {
+    type: 'bar',
+    data: {
+        labels: ['Eczéma', 'Acné', 'Psoriasis', 'Dermatite', 'Infection Fongique'],
+        datasets: [{
+            label: 'Nombre de Case',
+            data: [45, 25, 30, 10, 15],
+            backgroundColor: [
+                '#FF6B6B','#FFA500','#FFD93D','#6BCB77','#5F9EA0'
+            ],
+            borderColor: 'black',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { color: '#fff' } }, x: { ticks: { color: '#fff' } } }
+    }
+});
+
+// === Patients Per Year ===
+new Chart(document.getElementById('patientsYearChart'), {
+    type: 'bar',
+    data: {
+        labels: ['2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+            label: 'Nombre de Patients',
+            data: [320, 410, 500, 650, 710],
+            backgroundColor: [
+                '#A8DADC','#457B9D','#F1FAEE','#F4A261','#E9C46A'
+            ],
+            borderColor: 'black',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { color: '#fff' } }, x: { ticks: { color: '#fff' } } }
+    }
+});
+
+// === Age Distribution Pie ===
+new Chart(document.getElementById('ageDistributionChart'), {
+    type: 'pie',
+    data: {
+        labels: ['0–10', '11–20', '21–30', '31–40', '41–50', '51–60', '60+'],
+        datasets: [{
+            data: [20, 45, 70, 55, 40, 25, 15],
+            backgroundColor: [
+                'purple','#FF8C42','#E63946','#2A9D8F','#F1FAEE','#457B9D','#A8DADC'
+            ],
+            borderColor: '#fff',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: '#fff' } } }
+    }
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derma. Inc. Statistics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body{ 
+            background-color: beige;
+            
+        }
+
+        header{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: 80px;
+        }
+
+        .container{
+            height: 100vh;
+            display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-top: 30px;
+           
+        }
+
+
+        #diagnosisChart{
+            max-width: 700px;
+            position: relative;
+            max-height: 600px;
+        }
+
+        #patientsYearChart{
+            max-width: 700px;
+            position: relative;
+            max-height: 600px;
+        }
+
+        #ageDistributionChart{
+            max-width: 700px;
+            position: relative;
+            max-height: 600px;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header><b>Statistics</b></header>
+    
+<div class="container">
+    <h3>Diagnosis (Bar Chart)</h3>
+    <br>
+<canvas id="diagnosisChart"></canvas>
+
+
+
+<h3>Patients Per Year (Bar Chart)</h3>
+<br>
+<canvas id="patientsYearChart"></canvas>
+
+
+
+<h3>Age Distribution (Pie Chart)</h3>
+<br>
+<canvas id="ageDistributionChart"></canvas>
+
+
+</div>
+
+<script>
+// === Diagnosis (Bar) ===
+new Chart(document.getElementById('diagnosisChart'), {
+    type: 'bar',
+    data: {
+        labels: ['Eczema', 'Achne', 'Psoraisis', 'Dermatitis', 'Fungal Infection'],
+        datasets: [{
+            label: 'Diagnosis',
+            data: [45, 25, 30, 10, 15],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: { y: { beginAtZero: true } }
+    }
+});
+
+// === Patients Per Year (Bar) ===
+new Chart(document.getElementById('patientsYearChart'), {
+    type: 'bar',
+    data: {
+        labels: ['2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+            label: 'Patients',
+            data: [320, 410, 500, 650, 710],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: { y: { beginAtZero: true } }
+    }
+});
+
+// === Age Distribution (Pie) ===
+new Chart(document.getElementById('ageDistributionChart'), {
+    type: 'pie',
+    data: {
+        labels: ['0–10', '11–20', '21–30', '31–40', '41–50', '51–60', '60+'],
+        datasets: [{
+            data: [20, 45, 70, 55, 40, 25, 15],
+            borderWidth: 1
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
+</body>
+</html>
+-->

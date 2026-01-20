@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DermaHub Patient</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <style>
+    body{
+      background: url('/DERMA/derma.webp') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: "Segoe UI", sans-serif;
+      padding: 20px;
+    }
+
+    .card{
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 15px;
+      width: 700px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    #avatar{
+      display: block;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      border: 3px solid turquoise;
+    }
+
+    h5{
+      margin-top: 20px;
+    }
+
+    .note-box{
+      margin-top: 20px;
+    }
+
+    textarea{
+      width: 100%;
+      height: 80px;
+      resize: none;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button.add-note{
+      margin-top: 10px;
+      background-color: turquoise;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    ul.list-group li{
+      font-weight: bold;
+    }
+
+    .notes-list{
+      margin-top: 15px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .notes-list li{
+      background-color: #e0f7fa;
+      margin-bottom: 5px;
+      padding: 8px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="./avatar.webp" alt="Patient Avatar" id="avatar">
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Noms: Lina ARMAND</li>
+      <li class="list-group-item">Âge: 30</li>
+      <li class="list-group-item">Sexe: Femme</li>
+    </ul>
+
+    <div class="card-body">
+      <h5>Diagnostique</h5>
+      <p><b>Psoriasis</b></p>
+
+      <div class="note-box">
+        <label for="new-note"><b>Note</b></label>
+        <textarea id="new-note" placeholder="Rédiger une note..."></textarea>
+        <button class="add-note" onclick="addNote()">Ajouter une note</button>
+
+        <ul class="notes-list" id="notes-list">
+          <!-- Notes will appear here -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addNote() {
+      const textarea = document.getElementById('new-note');
+      const noteText = textarea.value.trim();
+      if(noteText === "") return;
+
+      const li = document.createElement('li');
+      const timestamp = new Date().toLocaleString();
+      li.textContent = `${timestamp} - ${noteText}`;
+      
+      document.getElementById('notes-list').appendChild(li);
+      textarea.value = "";
+    }
+  </script>
+</body>
+</html>

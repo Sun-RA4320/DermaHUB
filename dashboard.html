@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DermaHub Dashboard</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            justify-content: space-evenly;
+            align-items: center;
+            font-family: "Sono", sans-serif;
+            height: 100vh;
+            background: url(/DERMA/derma.webp) no-repeat;
+            background-size:cover;
+        }
+
+        .container .dash .boxes{
+            display: flex;
+            align-items: center;
+            margin: 300px 0 0 0;
+            height: 100vh;
+        }
+
+        .container{
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .dash{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .boxes{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            justify-content: space-evenly;
+            color: #fff;
+            opacity: 80%;
+        }
+
+
+        #patients{
+            background-color: turquoise;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            width: 250px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        #upload{
+            background-color: turquoise;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            width: 250px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        #diagnosis{
+            background-color: turquoise;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            width: 250px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        
+
+        .act-button{
+            display: flex;
+            justify-content: center;
+            justify-content: space-evenly; 
+        }
+
+        #act-patient{
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: aquamarine;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        #act-stats{
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: aquamarine;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        #demo{
+    color: rgb(6, 6, 6); 
+    text-align: center; 
+    font-size: 12px; 
+    margin-top: 10px;
+}
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="dash">Tableau de Bord</h1>
+        <div class="boxes">
+
+           <h3 class="patients"> 
+            
+
+             <p  id="patients">
+                Totale de Patients
+                <br>
+                (147)
+             </p>
+
+           </h3>
+
+           <h3 class="upload">
+            
+            
+             <p id="upload">
+                Téléverser un Document
+                <br>
+                (320)
+             </p>
+
+            </h3>
+
+           <h3 class="diagnosis"> 
+            
+             <p id="diagnosis">
+                Diagnostiques les plus Fréquents
+                 <br> (Eczéma)
+
+             </p>
+        
+            </h3>
+        </div>
+
+       <div class="act-button">
+       <a href="./patients.html"><button id="act-patient">Voir les patients <p id="demo">
+        Cliquez ici</button> 
+    </p></a>
+       
+
+        <a href="./Stats.html" target="_blank"><button id="act-stats">Voir les statistiques <p id="demo">
+            Cliquez ici</button></a>
+       </div>
+
+       <p id="demo">
+        Version de démonstration uniquemnt - les fonctionnalités serons ajoutées dans le système complet.
+    </p>
+    </div>
+    
+
+</body>
+</html>
